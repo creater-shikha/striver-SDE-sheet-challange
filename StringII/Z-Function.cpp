@@ -1,22 +1,21 @@
-class Solution {
-public:
-    int strStr(string haystack, string needle) {
-        if(needle.length()>haystack.length()){
-            return -1;
+
+int zAlgorithm(string s, string p, int n, int m)
+{int ans=0;
+ if(p.length()>s.length())return false;
+    int j=0;
+    for(int i=0;i<s.length();i++){
+        if(s[i]==p[j]){
+            j++;
         }
-        int j=0 ;
-      for(int i=0;i<haystack.length();i++){
-            if(haystack[i]==needle[j]){
-                j++;}
-            else{
+        else{
                 i=i-j;
-                j=0;
-            }
-            if(j==needle.length()){
-                return i-j+1;
-            }
-      }
-            
-         return -1;
+            j=0;
+        
+        }
+        if(j==p.length()){
+           
+           ans++;
+        }
     }
-};
+    return ans;
+}
